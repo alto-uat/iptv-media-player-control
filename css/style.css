@@ -11,7 +11,7 @@
     width: 100%;
     padding: 10px;
     display: none;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .channel-logo {
@@ -40,4 +40,14 @@
 .control-btn-group button.btn i.fa {
     font-size: 28px !important;
     font-weight: bolder !important;
+}
+
+.w3-dropdown-content {
+    background: transparent !important;
+}
+
+.w3-dropdown-content > .w3-bar-item {
+    text-decoration: none !important;
+    color: white !important;
+    background-color: transparent !important;
 }
