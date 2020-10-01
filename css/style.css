@@ -1,0 +1,43 @@
+.video-player .video {
+    position: fixed;
+    width: 100%;
+    background: transparent !important;
+}
+
+.content {
+
+    background-color: #00000016;
+    color: #f1f1f1;
+    width: 100%;
+    padding: 10px;
+    display: none;
+    overflow: hidden;
+}
+
+.channel-logo {
+    max-width: 131px !important;
+    max-height: 64px !important;
+    text-align: center !important;
+}
+
+.control-btn-group {
+    padding: 7px !important;
+    text-align: center !important;
+}
+
+.control-btn-group button.btn {
+    border-radius: 10% !important;
+    margin-left: 10px !important;
+
+
+}
+
+.control-btn-group button.btn span {
+    font-size: 20px !important;
+    font-weight: bolder !important;
+}
+
+.control-btn-group button.btn i.fa {
+    font-size: 28px !important;
+    font-weight: bolder !important;
+}
