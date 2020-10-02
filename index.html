@@ -47,8 +47,8 @@
                                 aria-expanded="false"><span class="">SAP</span>
                             </button>
                             <div class="w3-dropdown-content w3-bar-block w3-card-4" style="z-index: initial">
-                                <a href="javascript:void(0);" onclick="mediaControl.onClosedCaption();" class="w3-bar-item w3-button">English</a>
-                                <a href="javascript:void(0);" onclick="mediaControl.onClosedCaption();" class="w3-bar-item w3-button">Spanish</a>
+                                <a href="javascript:void(0);" onclick="mediaControl.onChooseSAP('English');" class="w3-bar-item w3-button">English</a>
+                                <a href="javascript:void(0);" onclick="mediaControl.onChooseSAP('Spanish');" class="w3-bar-item w3-button">Spanish</a>
                             </div>
                         </div>
                         <button class="btn btn-sm btn-danger controlBtn rounded-lg p-0"
@@ -56,12 +56,12 @@
                             <img src="assets/icons/tv_guide.png" style="width:38px;"
                                 onclick="mediaControl.onTvGuideClick();"></button>
                         <button class="btn btn-sm btn-primary controlBtn rounded-lg pl-3 pr-3"
-                            onclick="mediaControl.onMuteSoundClick();">
+                            onclick="mediaControl.onNextChannel();">
                             <i class="fa fa-arrow-up"></i>
 
                         </button>
                         <button class="btn btn-sm btn-primary controlBtn rounded-lg pl-3 pr-3"
-                            onclick="mediaControl.onMuteSoundClick();">
+                            onclick="mediaControl.onPrevChannel();">
                             <i class="fa fa-arrow-down"></i>
 
                         </button>
@@ -107,7 +107,7 @@
 
             this.screenIdle$;
 
-            this.screenIdleTime = 60000;
+            this.screenIdleTime = 6000;
 
             this.videoEle;
 
@@ -124,7 +124,8 @@
             this.dateNow = '';
 
             this.controlOpen = false;
-
+            
+            this.choosedSAP = '';
         }
 
         MediaControlsComponent.prototype.ngOnInit = function () {
@@ -221,6 +222,21 @@
         MediaControlsComponent.prototype.onSeekTo = function () {
             Android.onSeekTo(50000);
         }
+
+        MediaControlsComponent.prototype.onChooseSAP = function (sap) {
+            this.choosedSAP = sap;
+            // Android function
+        }
+
+        MediaControlsComponent.prototype.onNextChannel = function () {
+            // Android function
+        }
+
+        MediaControlsComponent.prototype.onPrevChannel = function () {
+            // Android function
+        }
+
+        
 
         var mediaControl = new MediaControlsComponent();
         mediaControl.ngOnInit();
