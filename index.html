@@ -107,7 +107,7 @@
 
             this.screenIdle$;
 
-            this.screenIdleTime = 6000;
+            this.screenIdleTime = 5000;
 
             this.videoEle;
 
@@ -135,7 +135,7 @@
                 $('html').on('mousemove', function (e) {
                     self.showControl(true);
                 });
-                $('html').on('touchmove', function (e) {
+                $('html').on('touch', function (e) {
                     self.showControl(true);
                 });
             })(this)
