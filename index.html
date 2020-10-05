@@ -132,15 +132,22 @@
 
             this.clock();
             (function (self) {
+				
                 $('html').on('mousemove', function (e) {
                     self.showControl(true);
                 });
                 $('html').on('touch', function (e) {
                     self.showControl(true);
                 });
+                
                 $('html').on('touchmove', function (e) {
                     self.showControl(true);
                 });
+			
+                $('html').on('keyup', function (e) {
+                    self.showControl(true);
+                });
+				
             })(this)
 
             $("[data-event-name]").text(this.eventName);
@@ -243,6 +250,7 @@
 
         var mediaControl = new MediaControlsComponent();
         mediaControl.ngOnInit();
+	
     </script>
 
 </body>
