@@ -55,12 +55,12 @@
                             onclick="mediaControl.onMuteSoundClick();">
                             <img src="assets/icons/tv_guide.png" style="width:38px;"
                                 onclick="mediaControl.onTvGuideClick();"></button>
-                        <button class="btn btn-sm btn-primary controlBtn rounded-lg pl-3 pr-3"
+                        <button class="btn btn-sm btn-primary controlBtn rounded-lg pl-3 pr-3 channel-next"
                             onclick="mediaControl.onNextChannel();">
                             <i class="fa fa-arrow-up"></i>
 
                         </button>
-                        <button class="btn btn-sm btn-primary controlBtn rounded-lg pl-3 pr-3"
+                        <button class="btn btn-sm btn-primary controlBtn rounded-lg pl-3 pr-3 channel-prev"
                             onclick="mediaControl.onPrevChannel();">
                             <i class="fa fa-arrow-down"></i>
 
@@ -129,7 +129,7 @@
         }
 
         MediaControlsComponent.prototype.ngOnInit = function () {
-
+            var btnClickTimeOut;
             this.clock();
             (function (self) {
 				
@@ -145,7 +145,23 @@
                 });
 			
                 $('html').on('keyup', function (e) {
-                    self.showControl(true);
+                    clearTimeout(btnClickTimeOut);
+                    $('.controlBtn').removeClass('btn-dark');
+                    if (e.keyCode == 38) {
+                        // Android.showToast('Up Key Press');
+                        $('.channel-next').addClass('btn-dark');
+                        self.showControl(true);
+                    }
+
+                    if (e.keyCode == 40) {
+                        $('.channel-prev').addClass('btn-dark');
+                        // Android.showToast('Down Key Press');
+                        self.showControl(true);
+                    }
+
+                    btnClickTimeOut = setTimeout(() => {
+                        $('.controlBtn').removeClass('btn-dark');
+                    }, 200);
                 });
 				
             })(this)
