@@ -114,7 +114,7 @@
 
             this.screenIdle$;
 
-            this.screenIdleTime = 50000;
+            this.screenIdleTime = 5000;
 
             this.videoEle;
 
@@ -155,7 +155,7 @@
                 });
 			
                 $('html').on('keyup', function (e) {
-                    
+                    self.showControl(true);
                     if (e.keyCode == 39) { //Right Arrow Key
                         const isFocus = $('.ctrlFocus').length;
                         let index = isFocus ? parseInt($('.controlBtn.ctrlFocus').attr('tabIndex')) : -1;
@@ -211,7 +211,7 @@
                             $('.ctrlFocus').trigger('click');
                         } 
                     }
-                    self.showControl(true);
+                    
                 });
 				
             })(this)
@@ -221,11 +221,15 @@
             $("[data-event-description]").text(this.eventDescription);
         }
 
-        MediaControlsComponent.prototype.navigateControls = function (index) {
+        MediaControlsComponent.prototype.resetControls =  function () {
             this.subNavIndex = 0;
             $('.w3-bar-item').removeClass('.subCtrlFocus');
             $('.w3-dropdown-content').css('display', 'none');
             $('.controlBtn').removeClass('ctrlFocus');
+        }
+
+        MediaControlsComponent.prototype.navigateControls = function (index) {
+            this.resetControls();
             $(`.controlBtn[tabIndex="${index}"]`).addClass('ctrlFocus');
         }
 
@@ -242,6 +246,7 @@
         MediaControlsComponent.prototype.showControl = function (status) {
 
             if (!this.controlOpen) {
+                this.resetControls();
                 $('.content').slideToggle('slow');
             }
             this.controlOpen = status;
