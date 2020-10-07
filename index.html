@@ -38,7 +38,7 @@
                         </div>
 
                         <button class="btn btn-sm btn-primary controlBtn rounded-lg pl-3 pr-3"
-                            onclick="mediaControl.onMuteSoundClick();" tabindex="1">
+                            onclick="mediaControl.onMuteSoundClick(event);" tabindex="1">
                             <i class="fa fa-volume-up"></i>
                         </button>
 
@@ -145,6 +145,7 @@
                 $('html').on('mousemove', function (e) {
                     self.showControl(true);
                 });
+
                 $('html').on('touch', function (e) {
                     self.showControl(true);
                 });
@@ -161,7 +162,6 @@
                         self.navigateControls(index = (index == 5 ? -1 : index) + 1);
                     }
 
-
                     if (e.keyCode == 37) { //Left Arrow Key
                         const isFocus = $('.ctrlFocus').length;
                         let index = isFocus ? parseInt($('.controlBtn.ctrlFocus').attr('tabIndex')) : 6;
@@ -169,12 +169,9 @@
                     }
 
                     let dropMenu = $('.ctrlFocus').next('.w3-dropdown-content');
-
-                    
+                    let items = $(dropMenu).find('.w3-bar-item')
                     if (e.keyCode == 38) { //Arrow Up Key
-
                         if (dropMenu.length && dropMenu.css('display') == 'block') { 
-                            let items = $(dropMenu).find('.w3-bar-item')
                             if (items.length) {
                                 items.removeClass('subCtrlFocus');
                                 items.eq(self.subNavIndex).addClass('subCtrlFocus');
@@ -185,13 +182,11 @@
                                 self.subNavIndex--;
                             }
                         }
-                       
                     }
 
                     if (e.keyCode == 40) { //Arrow Down key
-
                         if (dropMenu.length && dropMenu.css('display') == 'block') { 
-                            let items = dropMenu.find('.w3-bar-item')
+                           
                             if (items.length) {
                                 items.removeClass('subCtrlFocus');
                                 items.eq(self.subNavIndex).addClass('subCtrlFocus');
@@ -209,12 +204,10 @@
                         if (dropMenu.length) {
                             dropMenu.css('display', dropMenu.css('display') == 'none' ? 'block': void 0);
                             $('.subCtrlFocus').trigger('click');
-                            console.log('show dropdown')
                             return;
                         } 
 
                         if (!dropMenu.length) {
-                            console.log('not a dropdown')
                             $('.ctrlFocus').trigger('click');
                         } 
                     }
@@ -277,6 +270,7 @@
         MediaControlsComponent.prototype.onClosedCaption = function () {
             this.ccStatus = !this.ccStatus;
             $("[data-cc-status]").text(this.ccStatus ? 'Caption On' : 'Caption Off');
+            //Android.onShowCaptionsClick(this.ccStatus);
         }
 
         MediaControlsComponent.prototype.onPlayClick = function () {
@@ -298,8 +292,11 @@
             Android.onShowCaptionsClick();
         }
 
-        MediaControlsComponent.prototype.onMuteSoundClick = function () {
+        MediaControlsComponent.prototype.onMuteSoundClick = function (e) {
             Android.onMuteSoundClick(this.videoMute = !this.videoMute);
+            let target = $(e.target).find('i');
+            target.removeClass(['fa-volume-up', 'fa-volume-off']);
+            target.addClass(this.videoMute ? 'fa-volume-off' : 'fa-volume-up');
         }
 
         MediaControlsComponent.prototype.onRewind = function () {
@@ -316,17 +313,19 @@
 
         MediaControlsComponent.prototype.onChooseSAP = function (sap) {
             this.choosedSAP = sap;
+            //Android.onSelectedSap(sap);
             // Android function
         }
 
         MediaControlsComponent.prototype.onNextChannel = function () {
             // Android function
-
+            //Android.onNextChannel();
             console.log('Next Channel');
         }
 
         MediaControlsComponent.prototype.onPrevChannel = function () {
             // Android function
+            //Android.onPrevChannel();
             console.log('Prev Channel');
         }
 
