@@ -15,86 +15,106 @@
 </head>
 
 <body id="body">
-    <div class="container-fluid video-player">
-        <div class="fixed-top content">
-            <div class="row">
-                <div class="d-flex flex-row  justify-content-md-center ml-4">
-                    <img src="assets/icons/sample_channel_logo.png" class="channel-logo align-self-md-center">
-                </div>
-                <div class="col-md-4 ml-4">
-                    <div class="h3" data-event-name=""></div>
-                    <div class="h4" data-event-time=""></div>
-                    <div class="h5" data-event-description=""></div>
-                </div>
-                <div class="control-btn-group d-flex flex-row ">
-                    <div class="align-self-md-center ">
-                        <div class="w3-dropdown-hover">
-                            <button class="btn btn-sm btn-primary controlBtn rounded-lg" 
-                                aria-expanded="false" tabindex="0"><span class="">CC1</span>
-                            </button>
-                            <div class="w3-dropdown-content w3-bar-block w3-card-4" style="z-index: initial">
-                                <a href="javascript:void(0);" onclick="mediaControl.onClosedCaption();" class="w3-bar-item w3-button" data-cc-status="false">Caption Off</a>
-                            </div>
+<div class="container-fluid video-player">
+    <div class="fixed-top content">
+        <div class="row">
+            <div class="d-flex flex-row  justify-content-md-center ml-4">
+                <img src="assets/icons/sample_channel_logo.png" class="channel-logo align-self-md-center">
+            </div>
+            <div class="col-md-4 ml-4">
+                <div class="h3" data-event-name=""></div>
+                <div class="h4" data-event-time=""></div>
+                <div class="h5" data-event-description=""></div>
+            </div>
+            <div class="control-btn-group d-flex flex-row ">
+                <div class="align-self-md-center ">
+                    <div class="w3-dropdown-hover">
+                        <button class="btn btn-sm btn-primary controlBtn rounded-lg" aria-expanded="false" data-tindex="0"
+                                onclick="mediaControl.showSubControls(event);"><span class="">CC1</span>
+                        </button>
+                        <div class="w3-dropdown-content w3-bar-block w3-card-4" style="z-index: initial">
+                            <a href="javascript:void(0);" onclick="mediaControl.onClosedCaption(event);"
+                               class="w3-bar-item w3-button" data-cc-status="false">Caption Off</a>
                         </div>
-
-                        <button class="btn btn-sm btn-primary controlBtn rounded-lg pl-3 pr-3"
-                            onclick="mediaControl.onMuteSoundClick(event);" tabindex="1">
-                            <i class="fa fa-volume-up"></i>
-                        </button>
-
-                        <div class="w3-dropdown-hover">
-                            <button class="btn btn-sm btn-primary controlBtn rounded-lg" tabindex="2"
-                                aria-expanded="false"><span class="">SAP</span>
-                            </button>
-                            <div class="w3-dropdown-content w3-bar-block w3-card-4" style="z-index: initial">
-                                <a href="javascript:void(0);" onclick="mediaControl.onChooseSAP('English');" class="w3-bar-item w3-button">English</a>
-                                <a href="javascript:void(0);" onclick="mediaControl.onChooseSAP('Spanish');" class="w3-bar-item w3-button">Spanish</a>
-                            </div>
-                        </div>
-                        <button class="btn btn-sm btn-danger controlBtn rounded-lg p-0" tabindex="3"
-                            onclick="mediaControl.onMuteSoundClick();">
-                            <img src="assets/icons/tv_guide.png" style="width:38px;"
-                                onclick="mediaControl.onTvGuideClick();"></button>
-                        <button class="btn btn-sm btn-primary controlBtn rounded-lg pl-3 pr-3 channel-next"
-                            onclick="mediaControl.onNextChannel();" tabindex="4">
-                            <i class="fa fa-arrow-up"></i>
-
-                        </button>
-                        <button class="btn btn-sm btn-primary controlBtn rounded-lg pl-3 pr-3 channel-prev"
-                            onclick="mediaControl.onPrevChannel();" tabindex="5">
-                            <i class="fa fa-arrow-down"></i>
-
-                        </button>
                     </div>
+
+                    <button class="btn btn-sm btn-primary controlBtn rounded-lg pl-3 pr-3" data-tindex="1"
+                            onclick="mediaControl.onMuteSoundClick(event, this);">
+                        <i class="fa fa-volume-up"></i>
+                    </button>
+
+                    <div class="w3-dropdown-hover">
+                        <button class="btn btn-sm btn-primary controlBtn rounded-lg" data-tindex="2"
+                                aria-expanded="false" onclick="mediaControl.showSubControls(event);"><span class="">SAP</span>
+                        </button>
+                        <div class="w3-dropdown-content w3-bar-block w3-card-4" style="z-index: initial">
+                            <a href="javascript:void(0);" onclick="mediaControl.onChooseSAP('English');"
+                               class="w3-bar-item w3-button">English</a>
+                            <a href="javascript:void(0);" onclick="mediaControl.onChooseSAP('Spanish');"
+                               class="w3-bar-item w3-button">Spanish</a>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm btn-danger controlBtn rounded-lg p-0" data-tindex="3"
+                            onclick="mediaControl.onTvGuideClick();">
+                        <img src="assets/icons/tv_guide.png" style="width:38px;"></button>
+                    <button class="btn btn-sm btn-primary controlBtn rounded-lg pl-3 pr-3 channel-prev"
+                            onclick="mediaControl.onPrevChannel();" data-tindex="4">
+                        <i class="fa fa-arrow-up"></i>
+
+                    </button>
+                    <button class="btn btn-sm btn-primary controlBtn rounded-lg pl-3 pr-3 channel-next"
+                            onclick="mediaControl.onNextChannel();" data-tindex="5">
+                        <i class="fa fa-arrow-down"></i>
+
+                    </button>
                 </div>
-                <div class="col-md-2 d-flex flex-row justify-content-md-end">
-                    <div class="align-self-md-center">
-                        <div class="text-center">
-                            <h5 class="clockText" data-time-now=""></h5>
-                        </div>
-                        <div class="text-center">
-                            <h5 class="dateText" data-date-now=""></h5>
-                        </div>
+            </div>
+            <div class="col-md-2 d-flex flex-row justify-content-md-end">
+                <div class="align-self-md-center">
+                    <div class="text-center">
+                        <h5 class="clockText" data-time-now=""></h5>
+                    </div>
+                    <div class="text-center">
+                        <h5 class="dateText" data-date-now=""></h5>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <style>
+<style>
         .w3-dropdown-hover {
             background: none !important;
         }
+
         .ctrlFocus {
             /* background: gray !important; */
             transform: scale(1.1) !important;
         }
+
         .subCtrlFocus {
             border: 1px solid #ffffff !important;
         }
+
+        .w3-bar-item:hover {
+            border: 1px solid #ffffff !important;
+        }
+
+
+        .btn:focus, .btn:active:focus, .btn.active:focus{
+            outline:none !important;
+            box-shadow:none  !important;
+        }
     </style>
 
-    <script type="text/javascript">
+<script type="text/javascript">
+
+        $(document).ready(function () {
+            $('button').focus(function () {
+                this.blur();
+            });
+        });
 
         function MediaControlsComponent() {
 
@@ -131,7 +151,7 @@
             this.dateNow = '';
 
             this.controlOpen = false;
-            
+
             this.choosedSAP = '';
 
             this.subNavIndex = 0;
@@ -141,7 +161,7 @@
             var btnClickTimeOut;
             this.clock();
             (function (self) {
-				
+
                 $('html').on('mousemove', function (e) {
                     self.showControl(true);
                 });
@@ -149,29 +169,29 @@
                 $('html').on('touch', function (e) {
                     self.showControl(true);
                 });
-                
+
                 $('html').on('touchmove', function (e) {
                     self.showControl(true);
                 });
-			
+
                 $('html').on('keyup', function (e) {
                     self.showControl(true);
                     if (e.keyCode == 39) { //Right Arrow Key
                         const isFocus = $('.ctrlFocus').length;
-                        let index = isFocus ? parseInt($('.controlBtn.ctrlFocus').attr('tabIndex')) : -1;
+                        let index = isFocus ? parseInt($('.controlBtn.ctrlFocus').attr('data-tindex')) : -1;
                         self.navigateControls(index = (index == 5 ? -1 : index) + 1);
                     }
 
                     if (e.keyCode == 37) { //Left Arrow Key
                         const isFocus = $('.ctrlFocus').length;
-                        let index = isFocus ? parseInt($('.controlBtn.ctrlFocus').attr('tabIndex')) : 6;
-                        self.navigateControls(index = (index == 0 ? 6: index) - 1);
+                        let index = isFocus ? parseInt($('.controlBtn.ctrlFocus').attr('data-tindex')) : 6;
+                        self.navigateControls(index = (index == 0 ? 6 : index) - 1);
                     }
 
                     let dropMenu = $('.ctrlFocus').next('.w3-dropdown-content');
                     let items = $(dropMenu).find('.w3-bar-item')
                     if (e.keyCode == 38) { //Arrow Up Key
-                        if (dropMenu.length && dropMenu.css('display') == 'block') { 
+                        if (dropMenu.length && dropMenu.css('display') == 'block') {
                             if (items.length) {
                                 items.removeClass('subCtrlFocus');
                                 items.eq(self.subNavIndex).addClass('subCtrlFocus');
@@ -185,8 +205,7 @@
                     }
 
                     if (e.keyCode == 40) { //Arrow Down key
-                        if (dropMenu.length && dropMenu.css('display') == 'block') { 
-                           
+                        if (dropMenu.length && dropMenu.css('display') == 'block') {
                             if (items.length) {
                                 items.removeClass('subCtrlFocus');
                                 items.eq(self.subNavIndex).addClass('subCtrlFocus');
@@ -199,21 +218,32 @@
                         }
                     }
 
-
                     if (e.keyCode == 13) { //Enter Key
-                        if (dropMenu.length) {
-                            dropMenu.css('display', dropMenu.css('display') == 'none' ? 'block': void 0);
+                        if (dropMenu.length > 0) {
+                            dropMenu.css('display', dropMenu.css('display') == 'none' ? 'block' : void 0);
                             $('.subCtrlFocus').trigger('click');
                             return;
-                        } 
+                        }
 
-                        if (!dropMenu.length) {
+                        if (dropMenu.length <= 0) {
+                            $('.ctrlFocus').removeClass('focus');
                             $('.ctrlFocus').trigger('click');
-                        } 
+                            return;
+                        }
                     }
-                    
+
                 });
-				
+
+                $(document).on('mousemove', function (e) {
+                    $('.w3-dropdown-content').css('display', '');
+                });
+                $('.controlBtn').mouseenter(function (e) {
+                    $(e.currentTarget).addClass('ctrlFocus');
+                });
+                $('.controlBtn').mouseleave(function (e) {
+                    $('.controlBtn').removeClass('ctrlFocus');
+                });
+
             })(this)
 
             $("[data-event-name]").text(this.eventName);
@@ -221,7 +251,18 @@
             $("[data-event-description]").text(this.eventDescription);
         }
 
-        MediaControlsComponent.prototype.resetControls =  function () {
+        MediaControlsComponent.prototype.showSubControls = function (e) {
+
+            if (typeof Android == 'undefined') return;
+            let dropMenu = $(e.currentTarget).next('.w3-dropdown-content');
+            if (dropMenu.length) {
+                dropMenu.css('display', dropMenu.css('display') == 'none' ? 'block' : void 0);
+                $('.subCtrlFocus').trigger('click');
+                return;
+            }
+        }
+
+        MediaControlsComponent.prototype.resetControls = function () {
             this.subNavIndex = 0;
             $('.w3-bar-item').removeClass('.subCtrlFocus');
             $('.w3-dropdown-content').css('display', 'none');
@@ -230,7 +271,8 @@
 
         MediaControlsComponent.prototype.navigateControls = function (index) {
             this.resetControls();
-            $(`.controlBtn[tabIndex="${index}"]`).addClass('ctrlFocus');
+            $(`.controlBtn[data-tindex="${index}"]`).addClass('ctrlFocus').removeClass('focus');
+
         }
 
         MediaControlsComponent.prototype.clock = function () {
@@ -272,19 +314,21 @@
             Android.showToast(toast);
         }
 
-        MediaControlsComponent.prototype.onClosedCaption = function () {
+        MediaControlsComponent.prototype.onClosedCaption = function (e) {
             this.ccStatus = !this.ccStatus;
             $("[data-cc-status]").text(this.ccStatus ? 'Caption On' : 'Caption Off');
-            //Android.onShowCaptionsClick(this.ccStatus);
+            Android.onShowCaptionsClick(this.ccStatus);
         }
 
-        MediaControlsComponent.prototype.onPlayClick = function () {
+        MediaControlsComponent.prototype.onPlayClick = function (e) {
             if (!this.videoPause) {
                 this.videoPause = true;
+                console.log('Pause Click'); return;
                 Android.onPauseClick(); return;
             }
             if (this.videoPause) {
                 this.videoPause = false;
+                console.log('Pause Click'); return;
                 Android.onPlayClick(); return;
             }
         }
@@ -297,9 +341,10 @@
             Android.onShowCaptionsClick();
         }
 
-        MediaControlsComponent.prototype.onMuteSoundClick = function (e) {
-            Android.onMuteSoundClick(this.videoMute = !this.videoMute);
-            let target = $(e.target).find('i');
+        MediaControlsComponent.prototype.onMuteSoundClick = function (e, ele) {
+            this.videoMute = !this.videoMute;
+            Android.onMuteSoundClick(this.videoMute);
+            let target = $(ele).find('i');
             target.removeClass(['fa-volume-up', 'fa-volume-off']);
             target.addClass(this.videoMute ? 'fa-volume-off' : 'fa-volume-up');
         }
@@ -308,7 +353,7 @@
             Android.onRewind(1);
         }
 
-        MediaControlsComponent.prototype.onFastForward = function  () {
+        MediaControlsComponent.prototype.onFastForward = function () {
             Android.onFastForward(1)
         }
 
@@ -319,26 +364,19 @@
         MediaControlsComponent.prototype.onChooseSAP = function (sap) {
             this.choosedSAP = sap;
             //Android.onSelectedSap(sap);
-            // Android function
         }
 
         MediaControlsComponent.prototype.onNextChannel = function () {
-            // Android function
             //Android.onNextChannel();
-            console.log('Next Channel');
         }
 
         MediaControlsComponent.prototype.onPrevChannel = function () {
-            // Android function
             //Android.onPrevChannel();
-            console.log('Prev Channel');
         }
-
-        
 
         var mediaControl = new MediaControlsComponent();
         mediaControl.ngOnInit();
-	
+
     </script>
 
 </body>
