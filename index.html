@@ -9,81 +9,99 @@
     <script src="js/jquery/jquery-3.5.1.min.js"></script>
     <script src="js/bootstrap/bootstrap.min.js"></script>
     <script src="js/moment/moment.min.js"></script>
+    <script src="js/jquery/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="js/bootstrap/boostrap.et.min.css">
+    <link rel="stylesheet" href="js/jquery/jquery-ui.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body id="body">
-<div class="container-fluid video-player">
-    <div class="fixed-top content">
-        <div class="row">
-            <div class="d-flex flex-row  justify-content-md-center ml-4">
-                <img src="assets/icons/sample_channel_logo.png" class="channel-logo align-self-md-center">
-            </div>
-            <div class="col-md-4 ml-4">
-                <div class="h3" data-event-name=""></div>
-                <div class="h4" data-event-time=""></div>
-                <div class="h5" data-event-description=""></div>
-            </div>
-            <div class="control-btn-group d-flex flex-row ">
-                <div class="align-self-md-center ">
-                    <div class="w3-dropdown-hover">
-                        <button class="btn btn-sm btn-primary controlBtn rounded-lg" aria-expanded="false" data-tindex="0"
-                                onclick="mediaControl.showSubControls(event);"><span class="">CC1</span>
-                        </button>
-                        <div class="w3-dropdown-content w3-bar-block w3-card-4" style="z-index: initial">
-                            <a href="javascript:void(0);" onclick="mediaControl.onClosedCaption(event);"
-                               class="w3-bar-item w3-button" data-cc-status="false">Caption Off</a>
-                        </div>
-                    </div>
-
-                    <button class="btn btn-sm btn-primary controlBtn rounded-lg pl-3 pr-3" data-tindex="1"
-                            onclick="mediaControl.onMuteSoundClick(event, this);">
-                        <i class="fa fa-volume-up"></i>
-                    </button>
-
-                    <div class="w3-dropdown-hover">
-                        <button class="btn btn-sm btn-primary controlBtn rounded-lg" data-tindex="2"
-                                aria-expanded="false" onclick="mediaControl.showSubControls(event);"><span class="">SAP</span>
-                        </button>
-                        <div class="w3-dropdown-content w3-bar-block w3-card-4" style="z-index: initial">
-                            <a href="javascript:void(0);" onclick="mediaControl.onChooseSAP('English');"
-                               class="w3-bar-item w3-button">English</a>
-                            <a href="javascript:void(0);" onclick="mediaControl.onChooseSAP('Spanish');"
-                               class="w3-bar-item w3-button">Spanish</a>
-                        </div>
-                    </div>
-                    <button class="btn btn-sm btn-danger controlBtn rounded-lg p-0" data-tindex="3"
-                            onclick="mediaControl.onTvGuideClick();">
-                        <img src="assets/icons/tv_guide.png" style="width:38px;"></button>
-                    <button class="btn btn-sm btn-primary controlBtn rounded-lg pl-3 pr-3 channel-prev"
-                            onclick="mediaControl.onPrevChannel();" data-tindex="4">
-                        <i class="fa fa-arrow-up"></i>
-
-                    </button>
-                    <button class="btn btn-sm btn-primary controlBtn rounded-lg pl-3 pr-3 channel-next"
-                            onclick="mediaControl.onNextChannel();" data-tindex="5">
-                        <i class="fa fa-arrow-down"></i>
-
-                    </button>
+    <div class="container-fluid video-player">
+        <div class="fixed-top content">
+            <div class="row">
+                <div class="d-flex flex-row  justify-content-md-center ml-4">
+                    <img src="" class="channel-logo align-self-md-center">
                 </div>
-            </div>
-            <div class="col-md-2 d-flex flex-row justify-content-md-end">
-                <div class="align-self-md-center">
-                    <div class="text-center">
-                        <h5 class="clockText" data-time-now=""></h5>
+                <div class="ml-4" style="width: 30%;">
+                    <div class="h3" data-event-name=""></div>
+                    <div class="h4" data-event-time=""></div>
+                    <div class="h5" data-event-description=""></div>
+                </div>
+                <div class="control-btn-group d-flex flex-row ">
+                    <div class="align-self-md-center ">
+                        <div class="w3-dropdown-hover">
+                            <button class="btn btn-sm btn-primary controlBtn rounded-lg" aria-expanded="false"
+                                data-tindex="0" onclick="mediaControl.showSubControls(event);"><span class="">CC1</span>
+                            </button>
+                            <div class="w3-dropdown-content w3-bar-block w3-card-4" style="z-index: initial">
+                                <a href="javascript:void(0);" onclick="mediaControl.onClosedCaption(event);"
+                                    class="w3-bar-item w3-button" data-cc-status="false">Caption Off</a>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-sm btn-primary controlBtn rounded-lg pl-3 pr-3" data-tindex="1"
+                                onclick="mediaControl.onMuteSoundClick(event, this);">
+                            <i class="fa fa-volume-up"></i>
+                        </button>
+
+                        <!-- <button class="btn btn-sm btn-primary controlBtn rounded-lg pl-3 pr-3" data-tindex="2"
+                            onclick="mediaControl.setVolume(2);">
+                            <i class="fa fa-volume-up"></i>
+                        </button> -->
+
+                        <div class="w3-dropdown-hover">
+                            <button class="btn btn-sm btn-primary controlBtn rounded-lg" data-tindex="2"
+                                aria-expanded="false" onclick="mediaControl.showSubControls(event);"><span
+                                    class="">SAP</span>
+                            </button>
+                            <div class="w3-dropdown-content w3-bar-block w3-card-4" style="z-index: initial">
+                                <a href="javascript:void(0);" onclick="mediaControl.onChooseSAP('English');"
+                                    class="w3-bar-item w3-button">English</a>
+                                <a href="javascript:void(0);" onclick="mediaControl.onChooseSAP('Spanish');"
+                                    class="w3-bar-item w3-button">Spanish</a>
+                            </div>
+                        </div>
+                        <button id="homeBtn" class="btn btn-sm btn-danger controlBtn rounded-lg pl-3 pr-3"
+                            data-tindex="3" onclick="mediaControl.onHomeClick();">
+                            <i class="fa fa-home"></i>
+                        </button>
+                        <button class="btn btn-sm btn-primary controlBtn rounded-lg pl-3 pr-3 channel-prev"
+                            onclick="mediaControl.onPrevChannel();" data-tindex="4">
+                            <i class="fa fa-arrow-up"></i>
+
+                        </button>
+                        <button class="btn btn-sm btn-primary controlBtn rounded-lg pl-3 pr-3 channel-next"
+                            onclick="mediaControl.onNextChannel();" data-tindex="5">
+                            <i class="fa fa-arrow-down"></i>
+                        </button>
                     </div>
-                    <div class="text-center">
-                        <h5 class="dateText" data-date-now=""></h5>
+                </div>
+                <div class="col-md-2 d-flex flex-row justify-content-md-end">
+                    <div class="align-self-md-center">
+                        <div class="text-center">
+                            <h5 class="clockText" data-time-now=""></h5>
+                        </div>
+                        <div class="text-center">
+                            <h5 class="dateText" data-date-now=""></h5>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
-<style>
+        <div class="fixed-bottom">
+            <div id="player">
+                <i class="fa fa-volume-down"></i>
+                <div id="volume"></div>
+                <i class="fa fa-volume-up"></i>
+            </div>
+        </div>
+
+
+    </div>
+
+    <style>
         .w3-dropdown-hover {
             background: none !important;
         }
@@ -102,19 +120,30 @@
         }
 
 
-        .btn:focus, .btn:active:focus, .btn.active:focus{
-            outline:none !important;
-            box-shadow:none  !important;
+        .btn:focus,
+        .btn:active:focus,
+        .btn.active:focus {
+            outline: none !important;
+            box-shadow: none !important;
         }
     </style>
 
-<script type="text/javascript">
+    <script type="text/javascript">
+
 
         $(document).ready(function () {
             $('button').focus(function () {
                 this.blur();
             });
+
+            $('#player').hide();
         });
+
+
+
+
+
+
 
         function MediaControlsComponent() {
 
@@ -122,13 +151,17 @@
 
             this.clockInterval;
 
-            this.eventName = 'XFINITY On Demand';
+            this.programName = 'sdfsdfsfsdf';
 
-            this.eventTime = '11:00 AM - 10.30 AM | None'
+            this.programTime = 'sfsfsfsfsf'
 
-            this.eventDescription = 'XFINITY On Demand';
+            this.programDescription = 'sdfffffdddddddddddddddddddddddddddd';
 
-            this.channelLogo = 'assets/icons/sample_channel_logo.png';
+            this.channelLogo = '';
+
+            this.channelScheme = '';
+
+            this.chnnelMode = '';
 
             this.screenActivity;
 
@@ -155,9 +188,13 @@
             this.choosedSAP = '';
 
             this.subNavIndex = 0;
+
+            this.volumeValue = 0;
         }
 
+
         MediaControlsComponent.prototype.ngOnInit = function () {
+
             var btnClickTimeOut;
             this.clock();
             (function (self) {
@@ -234,6 +271,9 @@
 
                 });
 
+
+
+
                 $(document).on('mousemove', function (e) {
                     $('.w3-dropdown-content').css('display', '');
                 });
@@ -244,11 +284,42 @@
                     $('.controlBtn').removeClass('ctrlFocus');
                 });
 
-            })(this)
 
-            $("[data-event-name]").text(this.eventName);
-            $("[data-event-time]").text(this.eventTime);
-            $("[data-event-description]").text(this.eventDescription);
+                $("#volume").slider({
+                    min: 0,
+                    max: 100,
+                    value: 10,
+                    range: "min",
+                    step: 2,
+                    animate: "fast",
+                    slide: function (event, ui) {
+
+                    }
+                });
+
+            })(this);
+
+            this.channelInfo();
+
+
+        }
+
+        MediaControlsComponent.prototype.channelInfo = function () {
+            this.programName = Android.getProgramName();
+            this.programTime = Android.getProgramTime();
+            this.programDescription = Android.getProgramDescription();
+            this.channelLogo = Android.getChannelLogo();
+            this.channelScheme = Android.getChannelScheme();
+            //this.volumeValue = Android.getVolumeValue();
+            this.chnnelMode = '';
+            // this.channelLogo = 'https://www.go2alto.com/media-filemanager/files/5f735c5fa0770009c64fcad2/ChannelLogos/KDFI.png';
+            $("[data-event-name]").text(this.programName);
+            $("[data-event-time]").text(this.programTime);
+            $("[data-event-description]").text(this.programDescription);
+            $('.channel-logo').attr('src', this.channelLogo);
+
+
+            this.channelScheme === 'ChannelList' ? $('#homeBtn').hide() : $('#homeBtn').show();
         }
 
         MediaControlsComponent.prototype.showSubControls = function (e) {
@@ -281,7 +352,6 @@
                 this.dateNow = moment().format('ddd, MMM d');
                 $("[data-time-now]").text(this.timeNow);
                 $("[data-date-now]").text(this.dateNow);
-
             }, 1000);
         }
 
@@ -305,6 +375,7 @@
             this.screenActivity = setTimeout(function () {
                 if (mediaControl.controlOpen) {
                     $('.content').slideToggle('slow');
+                    $('#player').hide();
                     mediaControl.controlOpen = !mediaControl.controlOpen;
                 }
             }, this.screenIdleTime);
@@ -333,8 +404,26 @@
             }
         }
 
+        MediaControlsComponent.prototype.setVolume = function (value) {
+            return;
+            if ((this.volumeValue == 0 && value < 0) || (this.volumeValue == 100 && value > 0)) {
+                return;
+            }
+
+            // if (this.volumeValue !=  Android.getVolumeValue()) {
+            //     this.volumeValue = Android.getVolumeValue();
+            // }
+            this.volumeValue += value;
+            $("#player").show();
+            $("#volume").slider('value', this.volumeValue);
+        }
+
         MediaControlsComponent.prototype.onTvGuideClick = function () {
             Android.onTvGuideClick();
+        }
+
+        MediaControlsComponent.prototype.onHomeClick = function () {
+            Android.onHomeClick();
         }
 
         MediaControlsComponent.prototype.onShowCaptionsClick = function () {
@@ -363,15 +452,17 @@
 
         MediaControlsComponent.prototype.onChooseSAP = function (sap) {
             this.choosedSAP = sap;
-            //Android.onSelectedSap(sap);
+            Android.onSelectedSap(sap);
         }
 
         MediaControlsComponent.prototype.onNextChannel = function () {
-            //Android.onNextChannel();
+            Android.onNextChannel();
+            this.channelInfo();
         }
 
         MediaControlsComponent.prototype.onPrevChannel = function () {
-            //Android.onPrevChannel();
+            Android.onPrevChannel();
+            this.channelInfo();
         }
 
         var mediaControl = new MediaControlsComponent();

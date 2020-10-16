@@ -1,6 +1,7 @@
 html, body {
-    background: transparent !important;
+    background: red !important;
 }
+
 .video-player .video {
     position: fixed;
     width: 100%;
@@ -8,7 +9,6 @@ html, body {
 }
 
 .content {
-
     background-color: #00000016;
     color: #f1f1f1;
     width: 100%;
@@ -31,8 +31,6 @@ html, body {
 .control-btn-group button.btn {
     border-radius: 10% !important;
     margin-left: 10px !important;
-
-
 }
 
 .control-btn-group button.btn span {
@@ -49,8 +47,67 @@ html, body {
     background: transparent !important;
 }
 
-.w3-dropdown-content > .w3-bar-item {
+.w3-dropdown-content>.w3-bar-item {
     text-decoration: none !important;
     color: white !important;
     background-color: transparent !important;
+}
+
+#player {
+    width: 350px;
+    height: 50px;
+    position: relative;
+    margin: 0 auto;
+}
+
+#player i {
+    position: absolute;
+    margin-top: -6px;
+    color: white;
+}
+
+#player i.fa-volume-down {
+    margin-left: -8px;
+}
+
+#player i.fa-volume-up {
+    margin-right: -8px;
+    right: 0;
+}
+
+#volume {
+    position: absolute;
+    left: 24px;
+    margin: 0 auto;
+    height: 5px;
+    width: 300px;
+    background: white;
+    border-radius: 15px;
+}
+
+
+
+#volume .ui-slider-handle {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background: #007bff;
+    position: absolute;
+    margin-left: -8px;
+    margin-top: -5px;
+    cursor: pointer;
+    outline: none;
+}
+
+
+#volume .ui-slider-range-min {
+    height: 5px;
+    width: 300px;
+    position: absolute;
+    background:#007bff !important;
+    border: 1px solid  #007bff !important;
+    border-radius: 10px;
+    outline: none;
+    margin-top: -1px;
+    margin-left: -2px;
 }
