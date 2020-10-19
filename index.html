@@ -14,84 +14,91 @@
     <link rel="stylesheet" href="js/bootstrap/boostrap.et.min.css">
     <link rel="stylesheet" href="js/jquery/jquery-ui.min.css">
     <link rel="stylesheet" href="css/style.css">
+
+
 </head>
 
 <body id="body">
-    <div class="container-fluid video-player">
-        <div class="fixed-top content">
-            <div class="row">
-                <div class="d-flex flex-row  justify-content-md-center ml-4">
-                    <img src="" class="channel-logo align-self-md-center">
-                </div>
-                <div class="ml-4" style="width: 30%;">
-                    <div class="h3" data-event-name=""></div>
-                    <div class="h4" data-event-time=""></div>
-                    <div class="h5" data-event-description=""></div>
-                </div>
-                <div class="control-btn-group d-flex flex-row ">
-                    <div class="align-self-md-center ">
-                        <div class="w3-dropdown-hover">
-                            <button class="btn btn-sm btn-primary controlBtn rounded-lg" aria-expanded="false"
+<div class="container-fluid video-player">
+    <div class="fixed-top content">
+        <div class="row">
+            <div class="d-flex flex-row  justify-content-md-center ml-4">
+                <img src="" class="channel-logo align-self-md-center">
+            </div>
+            <div class="ml-4" style="width: 30%;">
+                <div class="h3" data-event-name=""></div>
+                <div class="h4" data-event-time=""></div>
+                <div class="h5" data-event-description=""></div>
+            </div>
+            <div class="control-btn-group d-flex flex-row ">
+                <div class="align-self-md-center ">
+                    <div class="w3-dropdown-hover">
+                        <button class="btn btn-sm btn-primary controlBtn rounded-lg" aria-expanded="false"
                                 data-tindex="0" onclick="mediaControl.showSubControls(event);"><span class="">CC1</span>
-                            </button>
-                            <div class="w3-dropdown-content w3-bar-block w3-card-4" style="z-index: initial">
-                                <a href="javascript:void(0);" onclick="mediaControl.onClosedCaption(event);"
-                                    class="w3-bar-item w3-button" data-cc-status="false">Caption Off</a>
-                            </div>
+                        </button>
+                        <div class="w3-dropdown-content w3-bar-block w3-card-4" style="z-index: initial">
+                            <a href="javascript:void(0);" onclick="mediaControl.onClosedCaption(event);"
+                               class="w3-bar-item w3-button" data-cc-status="false">Caption Off</a>
                         </div>
-
-                        <button class="btn btn-sm btn-primary controlBtn rounded-lg pl-3 pr-3" data-tindex="1"
-                                onclick="mediaControl.onMuteSoundClick(event, this);">
-                            <i class="fa fa-volume-up"></i>
-                        </button>
-
-                        <!-- <button class="btn btn-sm btn-primary controlBtn rounded-lg pl-3 pr-3" data-tindex="2"
-                            onclick="mediaControl.setVolume(2);">
-                            <i class="fa fa-volume-up"></i>
-                        </button> -->
-
-                        <div class="w3-dropdown-hover">
-                            <button class="btn btn-sm btn-primary controlBtn rounded-lg" data-tindex="2"
-                                aria-expanded="false" onclick="mediaControl.showSubControls(event);"><span
-                                    class="">SAP</span>
-                            </button>
-                            <div class="w3-dropdown-content w3-bar-block w3-card-4" style="z-index: initial">
-                                <a href="javascript:void(0);" onclick="mediaControl.onChooseSAP('English');"
-                                    class="w3-bar-item w3-button">English</a>
-                                <a href="javascript:void(0);" onclick="mediaControl.onChooseSAP('Spanish');"
-                                    class="w3-bar-item w3-button">Spanish</a>
-                            </div>
-                        </div>
-                        <button id="homeBtn" class="btn btn-sm btn-danger controlBtn rounded-lg pl-3 pr-3"
-                            data-tindex="3" onclick="mediaControl.onHomeClick();">
-                            <i class="fa fa-home"></i>
-                        </button>
-                        <button class="btn btn-sm btn-primary controlBtn rounded-lg pl-3 pr-3 channel-prev"
-                            onclick="mediaControl.onPrevChannel();" data-tindex="4">
-                            <i class="fa fa-arrow-up"></i>
-
-                        </button>
-                        <button class="btn btn-sm btn-primary controlBtn rounded-lg pl-3 pr-3 channel-next"
-                            onclick="mediaControl.onNextChannel();" data-tindex="5">
-                            <i class="fa fa-arrow-down"></i>
-                        </button>
                     </div>
+
+                    <!-- <button class="btn btn-sm btn-primary controlBtn rounded-lg pl-3 pr-3" data-tindex="1"
+                        onclick="mediaControl.onMuteSoundClick(event, this);">
+                    <i class="fa fa-volume-down"></i>
+                </button> -->
+                    <button class="btn btn-sm btn-primary controlBtn volumeBtn rounded-lg pl-3 pr-3" data-tindex="1"
+                            onclick="mediaControl.setVolume(-1);">
+                        <i class="fa fa-volume-down"></i>
+                    </button>
+
+                    <button class="btn btn-sm btn-primary controlBtn volumeBtn rounded-lg pl-3 pr-3" data-tindex="2"
+                            onclick="mediaControl.setVolume(1);">
+                        <i class="fa fa-volume-up"></i>
+                    </button>
+
+                    <div class="w3-dropdown-hover">
+                        <button class="btn btn-sm btn-primary controlBtn rounded-lg" data-tindex="3"
+                                aria-expanded="false" onclick="mediaControl.showSubControls(event);"><span
+                                class="">SAP</span>
+                        </button>
+                        <div class="w3-dropdown-content w3-bar-block w3-card-4 sap-list" style="z-index: initial">
+
+                        </div>
+                    </div>
+                    <button id="homeBtn" class="btn btn-sm btn-danger controlBtn rounded-lg pl-3 pr-3"
+                            data-tindex="4" onclick="mediaControl.onHomeClick();">
+                        <i class="fa fa-home"></i>
+                    </button>
+                    <button class="btn btn-sm btn-primary controlBtn rounded-lg pl-3 pr-3 channel-prev"
+                            onclick="mediaControl.onPrevChannel();" data-tindex="5">
+                        <i class="fa fa-arrow-up"></i>
+
+                    </button>
+                    <button class="btn btn-sm btn-primary controlBtn rounded-lg pl-3 pr-3 channel-next"
+                            onclick="mediaControl.onNextChannel();" data-tindex="6">
+                        <i class="fa fa-arrow-down"></i>
+                    </button>
                 </div>
-                <div class="col-md-2 d-flex flex-row justify-content-md-end">
-                    <div class="align-self-md-center">
-                        <div class="text-center">
-                            <h5 class="clockText" data-time-now=""></h5>
-                        </div>
-                        <div class="text-center">
-                            <h5 class="dateText" data-date-now=""></h5>
-                        </div>
+            </div>
+            <div class="col-md-2 d-flex flex-row justify-content-md-end">
+                <div class="align-self-md-center">
+                    <div class="text-center">
+                        <h5 class="clockText" data-time-now=""></h5>
+                    </div>
+                    <div class="text-center">
+                        <h5 class="dateText" data-date-now=""></h5>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!--    <video id="my-video" class="video-js" controls preload="auto" width="640" height="264" data-setup="{}" loop>-->
+    <!--        <source src="https://www.w3schools.com/tags/movie.mp4" type="video/mp4" />-->
+    <!--    </video>-->
 
         <div class="fixed-bottom">
-            <div id="player">
+            <div id="player" style="display:none;">
                 <i class="fa fa-volume-down"></i>
                 <div id="volume"></div>
                 <i class="fa fa-volume-up"></i>
@@ -99,9 +106,9 @@
         </div>
 
 
-    </div>
+</div>
 
-    <style>
+<style>
         .w3-dropdown-hover {
             background: none !important;
         }
@@ -126,9 +133,15 @@
             outline: none !important;
             box-shadow: none !important;
         }
+
+        .video-js {
+            width: 100% !important;
+            height: 100vh !important;
+        }
     </style>
 
-    <script type="text/javascript">
+
+<script type="text/javascript">
 
 
         $(document).ready(function () {
@@ -137,6 +150,7 @@
             });
 
             $('#player').hide();
+
         });
 
 
@@ -151,11 +165,11 @@
 
             this.clockInterval;
 
-            this.programName = 'sdfsdfsfsdf';
+            this.programName = '';
 
-            this.programTime = 'sfsfsfsfsf'
+            this.programTime = ''
 
-            this.programDescription = 'sdfffffdddddddddddddddddddddddddddd';
+            this.programDescription = '';
 
             this.channelLogo = '';
 
@@ -190,6 +204,8 @@
             this.subNavIndex = 0;
 
             this.volumeValue = 0;
+
+            this.ctrlBtnLength = 6;
         }
 
 
@@ -216,13 +232,15 @@
                     if (e.keyCode == 39) { //Right Arrow Key
                         const isFocus = $('.ctrlFocus').length;
                         let index = isFocus ? parseInt($('.controlBtn.ctrlFocus').attr('data-tindex')) : -1;
-                        self.navigateControls(index = (index == 5 ? -1 : index) + 1);
+                        self.navigateControls(index = (index == 6 ? -1 : index) + 1);
+                        $('#player').hide();
                     }
 
                     if (e.keyCode == 37) { //Left Arrow Key
                         const isFocus = $('.ctrlFocus').length;
                         let index = isFocus ? parseInt($('.controlBtn.ctrlFocus').attr('data-tindex')) : 6;
-                        self.navigateControls(index = (index == 0 ? 6 : index) - 1);
+                        self.navigateControls(index = (index == 0 ? 7 : index) - 1);
+                        $('#player').hide();
                     }
 
                     let dropMenu = $('.ctrlFocus').next('.w3-dropdown-content');
@@ -285,17 +303,7 @@
                 });
 
 
-                $("#volume").slider({
-                    min: 0,
-                    max: 100,
-                    value: 10,
-                    range: "min",
-                    step: 2,
-                    animate: "fast",
-                    slide: function (event, ui) {
 
-                    }
-                });
 
             })(this);
 
@@ -304,22 +312,70 @@
 
         }
 
+
+        MediaControlsComponent.prototype.configVolume =  function () {
+            let androidMaxVolume = Android.getMaxVolume();
+            this.volumeValue = Android.getVolumeValue();
+            $('#player').hide();
+            $("#volume").slider({
+                    min: 0,
+                    max: androidMaxVolume,
+                    value: this.volumeValue,
+                    range: "min",
+                    step: 1,
+                    animate: "fast",
+                    slide: function (event, ui) {
+
+                    }
+                });
+        }
+
         MediaControlsComponent.prototype.channelInfo = function () {
             this.programName = Android.getProgramName();
             this.programTime = Android.getProgramTime();
             this.programDescription = Android.getProgramDescription();
             this.channelLogo = Android.getChannelLogo();
             this.channelScheme = Android.getChannelScheme();
-            //this.volumeValue = Android.getVolumeValue();
-            this.chnnelMode = '';
-            // this.channelLogo = 'https://www.go2alto.com/media-filemanager/files/5f735c5fa0770009c64fcad2/ChannelLogos/KDFI.png';
+            this.channelMode = Android.getChannelMode();
+            this.configVolume();
+            this.sapListRender();
+
             $("[data-event-name]").text(this.programName);
             $("[data-event-time]").text(this.programTime);
             $("[data-event-description]").text(this.programDescription);
             $('.channel-logo').attr('src', this.channelLogo);
 
+            //this.channelScheme === 'ChannelList' ? $('#homeBtn').hide() : $('#homeBtn').show();
 
-            this.channelScheme === 'ChannelList' ? $('#homeBtn').hide() : $('#homeBtn').show();
+            if (this.channelMode === 'SingleMode') {
+
+            }
+
+            if (this.channelMode === 'MultiCast') {
+
+            }
+        }
+
+        MediaControlsComponent.prototype.sapListRender = function () {
+            this.sapList = Android.getSAPDataList();
+            $('.sap-list').empty();
+
+
+            if (this.sapList === undefined || this.sapList.length === 0) {
+                $('.sap-list').hide();
+                return true;
+            }
+
+            if (this.sapList.length) {
+                for (let i = 0; i < this.sapList.length; i++) {
+                    $('.sap-list').append(`
+                        <a href="javascript:void(0);" onclick="mediaControl.onChooseSAP('${this.sapList[i]}');"
+                            class="w3-bar-item w3-button">
+                            ${this.sapList[i]}
+                        </a>
+                    `);
+                }
+            }
         }
 
         MediaControlsComponent.prototype.showSubControls = function (e) {
@@ -405,17 +461,21 @@
         }
 
         MediaControlsComponent.prototype.setVolume = function (value) {
-            return;
-            if ((this.volumeValue == 0 && value < 0) || (this.volumeValue == 100 && value > 0)) {
+            this.showControl(true);
+            let androidMaxVolume = Android.getMaxVolume();
+            if ((this.volumeValue == 0 && value < 0) || (this.volumeValue == androidMaxVolume && value > 0)) {
                 return;
             }
 
-            // if (this.volumeValue !=  Android.getVolumeValue()) {
-            //     this.volumeValue = Android.getVolumeValue();
-            // }
+            if (this.volumeValue != Android.getVolumeValue()) {
+                this.volumeValue = Android.getVolumeValue();
+            }
             this.volumeValue += value;
             $("#player").show();
             $("#volume").slider('value', this.volumeValue);
+            this.volumeValue = Android.setVolume(this.volumeValue);
+            console.log(this.volumeValue)
+            // $('#my-video video')[0].volume = this.volumeValue / 100;
         }
 
         MediaControlsComponent.prototype.onTvGuideClick = function () {
@@ -469,6 +529,9 @@
         mediaControl.ngOnInit();
 
     </script>
+
+
+
 
 </body>
 
