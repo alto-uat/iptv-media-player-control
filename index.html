@@ -251,6 +251,12 @@
                                 self.subNavIndex--;
                             }
                         }
+
+                        if (dropMenu.length === 0) {
+                            $('.controlBtn').removeClass('ctrlFocus');
+                            $('.channel-next').addClass('ctrlFocus');
+                            $('.channel-next').click();
+                        }
                     }
 
                     if (e.keyCode == 40) { //Arrow Down key
@@ -265,6 +271,12 @@
                                 self.subNavIndex++;
                             }
                         }
+                        if (dropMenu.length === 0) {
+                            $('.controlBtn').removeClass('ctrlFocus');
+                            $('.channel-prev').addClass('ctrlFocus');
+                            $('.channel-prev').click();
+                        }
+
                     }
 
                     if (e.keyCode == 13) { //Enter Key
@@ -467,7 +479,8 @@
             this.volumeValue += value;
             $("#player").show();
             $("#volume").slider('value', this.volumeValue);
-            this.volumeValue = Android.setVolume(this.volumeValue);
+            Android.setVolume(this.volumeValue);
+            this.volumeValue = Android.getVolumeValue();
             console.log(this.volumeValue)
             // $('#my-video video')[0].volume = this.volumeValue / 100;
         }
