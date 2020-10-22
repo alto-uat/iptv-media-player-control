@@ -295,9 +295,6 @@
 
                 });
 
-
-
-
                 $(document).on('mousemove', function (e) {
                     $('.w3-dropdown-content').css('display', '');
                 });
@@ -307,17 +304,10 @@
                 $('.controlBtn').mouseleave(function (e) {
                     $('.controlBtn').removeClass('ctrlFocus');
                 });
-
-
-
-
             })(this);
 
             this.channelInfo();
-
-
         }
-
 
         MediaControlsComponent.prototype.configVolume =  function () {
             let androidMaxVolume = Android.getMaxVolume();
@@ -375,7 +365,7 @@
             if (this.sapList.length) {
                 for (let i = 0; i < this.sapList.length; i++) {
                     $('.sap-list').append(`
-                        <a href="javascript:void(0);" onclick="mediaControl.onChooseSAP('${this.sapList[i]}');"
+                        <a href="javascript:void(0);" onclick="mediaControl.onChooseSAP('${i}');"
                             class="w3-bar-item w3-button">
                             ${this.sapList[i]}
                         </a>
@@ -450,7 +440,13 @@
         MediaControlsComponent.prototype.onClosedCaption = function (e) {
             this.ccStatus = !this.ccStatus;
             $("[data-cc-status]").text(this.ccStatus ? 'Caption On' : 'Caption Off');
-            Android.onShowCaptionsClick(this.ccStatus);
+            if (this.ccStatus) {
+                Android.onShowCaptions();
+                $("[data-cc-status]").text('Caption On');
+            } else {
+                Android.onHideCaptions();
+                $("[data-cc-status]").text('Caption Off');
+            }
         }
 
         MediaControlsComponent.prototype.onPlayClick = function (e) {
@@ -517,9 +513,9 @@
             Android.onSeekTo(50000);
         }
 
-        MediaControlsComponent.prototype.onChooseSAP = function (sap) {
-            this.choosedSAP = sap;
-            Android.onSelectedSap(sap);
+        MediaControlsComponent.prototype.onChooseSAP = function (sapIndex) {
+            this.choosedSAP = sapIndex;
+            Android.onSapSelected(sapIndex);
         }
 
         MediaControlsComponent.prototype.onNextChannel = function () {
